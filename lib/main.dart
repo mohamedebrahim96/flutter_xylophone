@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 
@@ -9,14 +10,18 @@ class MyXylophone extends StatelessWidget {
     player.play("d$number.wav");
   }
 
-  Expanded myMethod({Color color,int number}){
+  Expanded myMethod({Color color,int number,String name}){
     return  Expanded(
       child: FlatButton(onPressed: () {
         print("Clickede $number");
         _playSound(number);
       },
         color: color,
-        child: Text("Click on m"),),
+        child: Text(name,style:TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
+        ) ,),),
     );
   }
   @override
@@ -26,13 +31,13 @@ class MyXylophone extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            myMethod(color: Colors.red,number: 1),
-            myMethod(color: Colors.yellow,number: 2),
-            myMethod(color: Colors.green,number: 3),
-            myMethod(color: Colors.blue,number: 4),
-            myMethod(color: Colors.orange,number: 5),
-            myMethod(color: Colors.purple,number: 6),
-            myMethod(color: Colors.black,number: 7),
+            myMethod(name:"DO",color: Colors.red,number: 1),
+            myMethod(name:"RE",color: Colors.orange,number: 2),
+            myMethod(name:"MI",color: Colors.yellow,number: 3),
+            myMethod(name:"FA",color: Colors.green,number: 4),
+            myMethod(name:"SO",color: Colors.blue,number: 5),
+            myMethod(name:"LA",color: Colors.deepPurple,number: 6),
+            myMethod(name:"TI",color: Colors.purple,number: 7),
 
           ],),
       ),
